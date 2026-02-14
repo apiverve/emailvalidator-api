@@ -1,32 +1,35 @@
 openapi: 3.0.4
 info:
   title: Email Validator
-  description: Email Validator is a simple tool for validating if an email address is valid or not. It checks the email address format and the domain records to see if the email address is valid.
+  description: >-
+    Email Validator is a simple tool for validating if an email address is valid
+    or not. It checks the email address format and the domain records to see if
+    the email address is valid.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
     email: hello@apiverve.com
     url: https://apiverve.com/contact
-  version: 1.0.9
+  version: 1.0.0
 externalDocs:
   description: Learn more about APIVerve
   url: https://docs.apiverve.com?utm_source=openapi
 servers:
-- url: https://api.apiverve.com/
+  - url: https://api.apiverve.com/
 paths:
   /v1/emailvalidator:
     get:
       summary: Validate Email
-      description: Email Validator is a simple tool for validating if an email address is valid or not. It checks the email address format and the domain records to see if the email address is valid.
+      description: Validate if an email address is valid and exists
       operationId: emailvalidator
       parameters:
-      - name: email
-        in: query
-        schema:
-          type: string
-        required: true
-        description: The email address to validate (e.g., support@myspace.com)
-        example: support@myspace.com
+        - name: email
+          in: query
+          schema:
+            type: string
+          required: true
+          description: The email address to validate (e.g., support@myspace.com)
+          example: support@myspace.com
       responses:
         '200':
           description: Successful Response
@@ -42,13 +45,13 @@ paths:
                     type: string
                     description: error
                   data:
-                    type: string
+                    type: object
                     description: data
               example:
                 status: ok
-                error: 
+                error: null
                 data:
-                  creationDate: 
+                  creationDate: null
                   domain: myspace.com
                   email: support@myspace.com
                   username: support
@@ -69,7 +72,7 @@ paths:
         '404':
           description: Requested resource was not found
         '500':
-          description: A server error has occured, try again later
+          description: A server error has occurred, try again later
 components:
   securitySchemes:
     api_key:
@@ -77,4 +80,4 @@ components:
       name: x-api-key
       in: header
 security:
-- api_key: []
+  - api_key: []
