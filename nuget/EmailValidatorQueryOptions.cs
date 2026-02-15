@@ -12,7 +12,6 @@ namespace APIVerve.API.EmailValidator
     {
         /// <summary>
         /// The email address to validate (e.g., support@myspace.com)
-        /// Example: support@myspace.com
         /// </summary>
         [JsonProperty("email")]
         public string Email { get; set; }
