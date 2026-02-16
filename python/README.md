@@ -232,8 +232,9 @@ from apiverve_emailvalidator.apiClient import EmailvalidatorAPIClient
 
 api = EmailvalidatorAPIClient("[YOUR_API_KEY]")
 
+query = { "email": "support@myspace.com" }
+
 try:
-    query = { "email": "support@myspace.com" }
     result = api.execute(query)
     print(result)
 finally:
