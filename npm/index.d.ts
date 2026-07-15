@@ -4,34 +4,41 @@ declare module '@apiverve/emailvalidator' {
     secure?: boolean;
   }
 
+  /**
+   * Describes fields the current plan does not unlock. Locked fields arrive as null
+   * in `data`; `locked_fields` names them, using dot paths for nested fields.
+   * Absent when the plan unlocks everything.
+   */
+  export interface PremiumInfo {
+    message: string;
+    upgrade_url: string;
+    locked_fields: string[];
+  }
+
   export interface emailvalidatorResponse {
     status: string;
     error: string | null;
     data: EmailValidatorData;
     code?: number;
+    premium?: PremiumInfo;
   }
 
 
   interface EmailValidatorData {
-      creationDate:   null;
-      domain:         string;
-      email:          string;
-      username:       string;
-      canConnect:     boolean;
-      hasTypo:        boolean;
-      isValid:        boolean;
-      isMXValid:      boolean;
-      isSMTPValid:    boolean;
-      isRegexValid:   boolean;
-      smtp:           SMTP;
-      isCompanyEmail: boolean;
-      isFreeEmail:    boolean;
-      checksum:       number;
-  }
-  
-  interface SMTP {
-      valid:  boolean;
-      reason: string;
+      email:               null | string;
+      domain:              null | string;
+      username:            null | string;
+      isRegexValid:        boolean | null;
+      hasTypo:             boolean | null;
+      isMXValid:           boolean | null;
+      isValid:             boolean | null;
+      isFreeEmail:         boolean | null;
+      isCompanyEmail:      boolean | null;
+      isDisposable:        boolean | null;
+      isRoleAccount:       boolean | null;
+      suggestedCorrection: null;
+      riskScore:           number | null;
+      riskLevel:           null | string;
   }
 
   export default class emailvalidatorWrapper {
