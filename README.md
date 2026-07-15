@@ -1,6 +1,6 @@
 # [Email Validator API](https://emailvalidator.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
 
-Email Validator is a simple tool for validating if an email address is valid or not. It checks the email address format and the domain records to see if the email address is valid.
+Email Validator checks whether an email address is valid, deliverable and safe. It validates the format, resolves the domain&#x27;s mail (MX) records, flags disposable and role-based addresses, and returns a composite risk score with typo correction.
 
 The Email Validator API provides a simple, reliable way to integrate email validator functionality into your applications. Built for developers who need production-ready email validator capabilities without the complexity of building from scratch.
 
@@ -30,7 +30,11 @@ The Email Validator API provides a simple, reliable way to integrate email valid
 ```javascript
 async function callEmailValidatorAPI() {
     try {
-        const response = await fetch('https://api.apiverve.com/v1/emailvalidator', {
+        const params = new URLSearchParams({
+            email: 'support@myspace.com'
+        });
+
+        const response = await fetch(`https://api.apiverve.com/v1/emailvalidator?${params}`, {
             method: 'GET',
             headers: {
                 'x-api-key': 'YOUR_API_KEY_HERE'
@@ -50,7 +54,7 @@ callEmailValidatorAPI();
 ### Using cURL
 
 ```bash
-curl -X GET "https://api.apiverve.com/v1/emailvalidator?param=value" \
+curl -X GET "https://api.apiverve.com/v1/emailvalidator?email=support%40myspace.com" \
   -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
@@ -150,7 +154,7 @@ go get github.com/apiverve/emailvalidator-api/go
 |---------|---------|
 | **Multi-language SDKs** | Native packages for JavaScript, Python, C#, Go, and Android |
 | **Simple Integration** | Single API key authentication, consistent response format |
-| **Production Ready** | 99.9% uptime, fast response times, used by thousands of developers |
+| **Production Ready** | 99.9% uptime SLA, served from 24 global regions |
 | **Comprehensive Docs** | Full examples, OpenAPI spec, and dedicated support |
 
 ---
@@ -169,7 +173,7 @@ go get github.com/apiverve/emailvalidator-api/go
 The Email Validator API is commonly used for:
 
 - **Web Applications** - Add email validator features to your frontend or backend
-- **Mobile Apps** - Native SDKs for iOS and Android development
+- **Mobile Apps** - Native SDKs for Android development
 - **Automation** - Integrate with n8n, Zapier, or custom workflows
 - **SaaS Products** - Enhance your product with email validator capabilities
 - **Data Pipelines** - Process and analyze data at scale
