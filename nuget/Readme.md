@@ -1,7 +1,7 @@
 EmailValidator API
 ============
 
-Email Validator is a simple tool for validating if an email address is valid or not. It checks the email address format and the domain records to see if the email address is valid.
+Email Validator checks whether an email address is valid, deliverable and safe. It validates the format, resolves the domain's mail (MX) records, flags disposable and role-based addresses, and returns a composite risk score with typo correction.
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 ![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
@@ -51,7 +51,7 @@ Here's a simple example to get you started quickly:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.EmailValidator;
 
 class Program
 {
@@ -60,8 +60,8 @@ class Program
         // Initialize the API client
         var apiClient = new EmailValidatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    email = "support@myspace.com"
+        var queryOptions = new EmailValidatorQueryOptions {
+    Email = "support@myspace.com"
 };
 
         // Make the API call
@@ -116,7 +116,7 @@ The modern async/await pattern provides the best performance and code readabilit
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.EmailValidator;
 
 public class Example
 {
@@ -124,8 +124,8 @@ public class Example
     {
         var apiClient = new EmailValidatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    email = "support@myspace.com"
+        var queryOptions = new EmailValidatorQueryOptions {
+    Email = "support@myspace.com"
 };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
@@ -148,7 +148,7 @@ If you need to use synchronous code, you can use the `Execute` method:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.EmailValidator;
 
 public class Example
 {
@@ -156,8 +156,8 @@ public class Example
     {
         var apiClient = new EmailValidatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    email = "support@myspace.com"
+        var queryOptions = new EmailValidatorQueryOptions {
+    Email = "support@myspace.com"
 };
 
         var response = apiClient.Execute(queryOptions);
@@ -185,7 +185,7 @@ The API client provides comprehensive error handling. Here are some examples:
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.EmailValidator;
 
 public class Example
 {
@@ -193,8 +193,8 @@ public class Example
     {
         var apiClient = new EmailValidatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    email = "support@myspace.com"
+        var queryOptions = new EmailValidatorQueryOptions {
+    Email = "support@myspace.com"
 };
 
         try
@@ -237,7 +237,7 @@ public class Example
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.EmailValidator;
 
 public class Example
 {
@@ -249,8 +249,8 @@ public class Example
         apiClient.SetMaxRetries(3);        // Retry up to 3 times (default: 0, max: 3)
         apiClient.SetRetryDelay(2000);     // Wait 2 seconds between retries
 
-        var queryOptions = new QueryOptions {
-    email = "support@myspace.com"
+        var queryOptions = new EmailValidatorQueryOptions {
+    Email = "support@myspace.com"
 };
 
         try
@@ -290,8 +290,8 @@ var apiClient = new EmailValidatorAPIClient("[YOUR_API_KEY]");
 apiClient.AddCustomHeader("X-Custom-Header", "custom-value");
 apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 
-var queryOptions = new QueryOptions {
-    email = "support@myspace.com"
+var queryOptions = new EmailValidatorQueryOptions {
+    Email = "support@myspace.com"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -316,8 +316,8 @@ apiClient.SetLogger(message =>
     Console.WriteLine($"[LOG] {DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}");
 });
 
-var queryOptions = new QueryOptions {
-    email = "support@myspace.com"
+var queryOptions = new EmailValidatorQueryOptions {
+    Email = "support@myspace.com"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -334,8 +334,8 @@ var apiClient = new EmailValidatorAPIClient("[YOUR_API_KEY]");
 apiClient.SetMaxRetries(3);           // Retry up to 3 times (default: 0, max: 3)
 apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (default: 1000ms)
 
-var queryOptions = new QueryOptions {
-    email = "support@myspace.com"
+var queryOptions = new EmailValidatorQueryOptions {
+    Email = "support@myspace.com"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -346,8 +346,8 @@ var response = await apiClient.ExecuteAsync(queryOptions);
 The API client implements `IDisposable` for proper resource cleanup:
 
 ```csharp
-var queryOptions = new QueryOptions {
-    email = "support@myspace.com"
+var queryOptions = new EmailValidatorQueryOptions {
+    Email = "support@myspace.com"
 };
 
 using (var apiClient = new EmailValidatorAPIClient("[YOUR_API_KEY]"))
@@ -367,23 +367,20 @@ using (var apiClient = new EmailValidatorAPIClient("[YOUR_API_KEY]"))
   "status": "ok",
   "error": null,
   "data": {
-    "creationDate": null,
-    "domain": "myspace.com",
     "email": "support@myspace.com",
+    "domain": "myspace.com",
     "username": "support",
-    "canConnect": true,
-    "hasTypo": false,
-    "isValid": true,
-    "isMxValid": true,
-    "isSmtpValid": true,
     "isRegexValid": true,
-    "smtp": {
-      "valid": true,
-      "reason": "Connected"
-    },
-    "isCompanyEmail": true,
+    "hasTypo": false,
+    "isMxValid": true,
+    "isValid": true,
     "isFreeEmail": false,
-    "checksum": 797
+    "isCompanyEmail": true,
+    "isDisposable": false,
+    "isRoleAccount": true,
+    "suggestedCorrection": null,
+    "riskScore": 10,
+    "riskLevel": "low"
   }
 }
 ```
