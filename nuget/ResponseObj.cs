@@ -25,59 +25,65 @@ namespace APIVerve.API.EmailValidator
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
     {
-        [JsonProperty("creationDate")]
-        public object CreationDate { get; set; }
+        [JsonProperty("email")]
+        public string Email { get; set; }
 
         [JsonProperty("domain")]
         public string Domain { get; set; }
 
-        [JsonProperty("email")]
-        public string Email { get; set; }
-
         [JsonProperty("username")]
         public string Username { get; set; }
 
-        [JsonProperty("canConnect")]
-        public bool CanConnect { get; set; }
+        [JsonProperty("isRegexValid")]
+        public bool? IsRegexValid { get; set; }
 
         [JsonProperty("hasTypo")]
-        public bool HasTypo { get; set; }
-
-        [JsonProperty("isValid")]
-        public bool IsValid { get; set; }
+        public bool? HasTypo { get; set; }
 
         [JsonProperty("isMxValid")]
-        public bool IsMxValid { get; set; }
+        public bool? IsMxValid { get; set; }
 
-        [JsonProperty("isSmtpValid")]
-        public bool IsSmtpValid { get; set; }
-
-        [JsonProperty("isRegexValid")]
-        public bool IsRegexValid { get; set; }
-
-        [JsonProperty("smtp")]
-        public Smtp Smtp { get; set; }
-
-        [JsonProperty("isCompanyEmail")]
-        public bool IsCompanyEmail { get; set; }
+        [JsonProperty("isValid")]
+        public bool? IsValid { get; set; }
 
         [JsonProperty("isFreeEmail")]
-        public bool IsFreeEmail { get; set; }
+        public bool? IsFreeEmail { get; set; }
 
-        [JsonProperty("checksum")]
-        public long Checksum { get; set; }
+        [JsonProperty("isCompanyEmail")]
+        public bool? IsCompanyEmail { get; set; }
+
+        [JsonProperty("isDisposable")]
+        public bool? IsDisposable { get; set; }
+
+        [JsonProperty("isRoleAccount")]
+        public bool? IsRoleAccount { get; set; }
+
+        [JsonProperty("suggestedCorrection")]
+        public object SuggestedCorrection { get; set; }
+
+        [JsonProperty("riskScore")]
+        public long? RiskScore { get; set; }
+
+        [JsonProperty("riskLevel")]
+        public string RiskLevel { get; set; }
     }
 
-    public partial class Smtp
+    public partial class Premium
     {
-        [JsonProperty("valid")]
-        public bool Valid { get; set; }
+        [JsonProperty("message")]
+        public string Message { get; set; }
 
-        [JsonProperty("reason")]
-        public string Reason { get; set; }
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
