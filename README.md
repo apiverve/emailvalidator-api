@@ -191,11 +191,41 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the Email Validator API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "email": "support@myspace.com",
+    "domain": "myspace.com",
+    "username": "support",
+    "isRegexValid": true,
+    "hasTypo": false,
+    "isMxValid": true,
+    "isValid": true,
+    "isFreeEmail": false,
+    "isCompanyEmail": true,
+    "isDisposable": false,
+    "isRoleAccount": true,
+    "suggestedCorrection": null,
+    "riskScore": 10,
+    "riskLevel": "low"
+  }
 }
 ```
 
