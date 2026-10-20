@@ -1,13 +1,12 @@
 Email Validator API
 ============
 
-Email Validator is a simple tool for validating if an email address is valid or not. It checks the email address format and the domain records to see if the email address is valid.
+Email Validator checks whether an email address is valid, deliverable and safe. It validates the format, resolves the domain's mail (MX) records, flags disposable and role-based addresses, and returns a composite risk score with typo correction.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a Python API Wrapper for the [Email Validator API](https://emailvalidator.apiverve.com?utm_source=pypi&utm_medium=readme)
+[![PyPI version](https://img.shields.io/pypi/v/apiverve-emailvalidator.svg)](https://pypi.org/project/apiverve-emailvalidator/)
+
+This is a Python wrapper for the [Email Validator API](https://apiverve.com/marketplace/emailvalidator?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -29,8 +28,8 @@ pip3 install apiverve-emailvalidator
 
 ## Configuration
 
-Before using the emailvalidator API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=readme)
+Before using the Email Validator API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -60,7 +59,7 @@ except Exception as e:
 
 ## Usage
 
-The Email Validator API documentation is found here: [https://docs.apiverve.com/ref/emailvalidator](https://docs.apiverve.com/ref/emailvalidator?utm_source=pypi&utm_medium=readme).
+The Email Validator API documentation is found here: [https://docs.apiverve.com/ref/emailvalidator](https://docs.apiverve.com/ref/emailvalidator?utm_source=pypi&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
@@ -102,23 +101,20 @@ print(result)
   "status": "ok",
   "error": null,
   "data": {
-    "creationDate": null,
-    "domain": "myspace.com",
     "email": "support@myspace.com",
+    "domain": "myspace.com",
     "username": "support",
-    "canConnect": true,
-    "hasTypo": false,
-    "isValid": true,
-    "isMxValid": true,
-    "isSmtpValid": true,
     "isRegexValid": true,
-    "smtp": {
-      "valid": true,
-      "reason": "Connected"
-    },
-    "isCompanyEmail": true,
+    "hasTypo": false,
+    "isMxValid": true,
+    "isValid": true,
     "isFreeEmail": false,
-    "checksum": 797
+    "isCompanyEmail": true,
+    "isDisposable": false,
+    "isRoleAccount": true,
+    "suggestedCorrection": null,
+    "riskScore": 10,
+    "riskLevel": "low"
   }
 }
 ```
@@ -246,7 +242,7 @@ finally:
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -257,12 +253,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 
