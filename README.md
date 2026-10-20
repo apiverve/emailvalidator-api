@@ -1,13 +1,13 @@
-# [Email Validator API](https://emailvalidator.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+# [Email Validator API](https://apiverve.com/marketplace/emailvalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
 Email Validator checks whether an email address is valid, deliverable and safe. It validates the format, resolves the domain&#x27;s mail (MX) records, flags disposable and role-based addresses, and returns a composite risk score with typo correction.
 
 The Email Validator API provides a simple, reliable way to integrate email validator functionality into your applications. Built for developers who need production-ready email validator capabilities without the complexity of building from scratch.
 
-**[View API Details →](https://emailvalidator.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
+**[View API Details →](https://apiverve.com/marketplace/emailvalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://emailvalidator.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/emailvalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 [![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
@@ -161,7 +161,7 @@ go get github.com/apiverve/emailvalidator-api/go
 
 ## Documentation
 
-- 🏠 **API Home:** [Email Validator API](https://emailvalidator.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home:** [Email Validator API](https://apiverve.com/marketplace/emailvalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 📚 **API Reference:** [docs.apiverve.com/ref/emailvalidator](https://docs.apiverve.com/ref/emailvalidator)
 - 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
 - 💡 **Examples:** [examples/](./examples/)
@@ -233,7 +233,7 @@ A real response from the Email Validator API:
 
 ## Support & Community
 
-- 🏠 **API Home**: [Email Validator API](https://emailvalidator.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home**: [Email Validator API](https://apiverve.com/marketplace/emailvalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)

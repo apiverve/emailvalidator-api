@@ -20,7 +20,7 @@ servers:
 paths:
   /v1/emailvalidator:
     get:
-      summary: Validate Email
+      summary: Email Validator
       description: Validate if an email address is valid and exists
       operationId: emailvalidator
       parameters:
