@@ -1,7 +1,7 @@
 {
     "name": "apiverve/emailvalidator",
     "description": "Email Validator checks whether an email address is valid, deliverable and safe. It validates the format, resolves the domain's mail (MX) records, flags disposable and role-based addresses, and returns a composite risk score with typo correction.",
-    "version": "1.2.0",
+    "version": "1.2.2",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -15,13 +15,13 @@
         "api",
         "apiverve",
         "emailvalidator",
-        "email validator",
         "email validator api",
-        "email validator tool",
-        "email validator software",
-        "email validator service"
+        "email checker api",
+        "email verification api",
+        "email verifier api",
+        "email validation api"
     ],
-    "homepage": "https://emailvalidator.apiverve.com?utm_source=php&utm_medium=homepage",
+    "homepage": "https://apiverve.com/marketplace/emailvalidator?utm_source=php&utm_medium=referral&utm_content=homepage",
     "support": {
         "email": "hello@apiverve.com",
         "docs": "https://docs.apiverve.com/ref/emailvalidator",
