@@ -36,6 +36,13 @@ declare module '@apiverve/emailvalidator' {
       isCompanyEmail:      boolean | null;
       isDisposable:        boolean | null;
       isRoleAccount:       boolean | null;
+      mxRecord:            null | string;
+      isNullMX:            boolean | null;
+      canReceiveMail:      boolean | null;
+      hasSPF:              boolean | null;
+      hasDmarc:            boolean | null;
+      isSubaddressed:      boolean | null;
+      normalizedEmail:     null | string;
       suggestedCorrection: null;
       riskScore:           number | null;
       riskLevel:           null | string;
