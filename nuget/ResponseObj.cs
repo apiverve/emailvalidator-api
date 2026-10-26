@@ -65,6 +65,27 @@ namespace APIVerve.API.EmailValidator
         [JsonProperty("isRoleAccount")]
         public bool? IsRoleAccount { get; set; }
 
+        [JsonProperty("mxRecord")]
+        public string MxRecord { get; set; }
+
+        [JsonProperty("isNullMx")]
+        public bool? IsNullMx { get; set; }
+
+        [JsonProperty("canReceiveMail")]
+        public bool? CanReceiveMail { get; set; }
+
+        [JsonProperty("hasSpf")]
+        public bool? HasSpf { get; set; }
+
+        [JsonProperty("hasDmarc")]
+        public bool? HasDmarc { get; set; }
+
+        [JsonProperty("isSubaddressed")]
+        public bool? IsSubaddressed { get; set; }
+
+        [JsonProperty("normalizedEmail")]
+        public string NormalizedEmail { get; set; }
+
         [JsonProperty("suggestedCorrection")]
         public object SuggestedCorrection { get; set; }
 
