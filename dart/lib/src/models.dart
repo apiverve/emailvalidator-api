@@ -6,90 +6,130 @@ class EmailvalidatorResponse {
   final dynamic error;
   final EmailvalidatorData? data;
 
+  /// Set only when the current plan locks one or more fields; null otherwise.
+  final PremiumInfo? premium;
+
   EmailvalidatorResponse({
     required this.status,
     this.error,
     this.data,
+    this.premium,
   });
 
   factory EmailvalidatorResponse.fromJson(Map<String, dynamic> json) => EmailvalidatorResponse(
     status: json['status'] as String? ?? '',
     error: json['error'],
     data: json['data'] != null ? EmailvalidatorData.fromJson(json['data']) : null,
+    premium: json['premium'] != null ? PremiumInfo.fromJson(json['premium']) : null,
   );
 
   Map<String, dynamic> toJson() => {
     'status': status,
     if (error != null) 'error': error,
     if (data != null) 'data': data,
+    if (premium != null) 'premium': premium!.toJson(),
+  };
+}
+
+/// Describes fields the current plan does not unlock. Locked fields arrive as null
+/// in [data], and [lockedFields] names them (nested ones use dot paths).
+class PremiumInfo {
+  final String? message;
+  final String? upgradeUrl;
+  final List<String>? lockedFields;
+
+  PremiumInfo({this.message, this.upgradeUrl, this.lockedFields});
+
+  factory PremiumInfo.fromJson(Map<String, dynamic> json) => PremiumInfo(
+    message: json['message'] as String?,
+    upgradeUrl: json['upgrade_url'] as String?,
+    lockedFields: (json['locked_fields'] as List?)?.map((e) => e.toString()).toList(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    if (message != null) 'message': message,
+    if (upgradeUrl != null) 'upgrade_url': upgradeUrl,
+    if (lockedFields != null) 'locked_fields': lockedFields,
   };
 }
 
 /// Response data for the Email Validator API.
 
 class EmailvalidatorData {
-  dynamic creationDate;
-  String? domain;
   String? email;
+  String? domain;
   String? username;
-  bool? canConnect;
-  bool? hasTypo;
-  bool? isValid;
-  bool? isMxValid;
-  bool? isSmtpValid;
   bool? isRegexValid;
-  EmailvalidatorDataSmtp? smtp;
-  bool? isCompanyEmail;
+  bool? hasTypo;
+  bool? isMxValid;
+  bool? isValid;
   bool? isFreeEmail;
-  int? checksum;
+  bool? isCompanyEmail;
+  bool? isDisposable;
+  bool? isRoleAccount;
+  String? mxRecord;
+  bool? isNullMx;
+  bool? canReceiveMail;
+  bool? hasSpf;
+  bool? hasDmarc;
+  bool? isSubaddressed;
+  String? normalizedEmail;
+  dynamic suggestedCorrection;
+  String? mailProvider;
+  bool? isSecurityGateway;
+  num? riskScore;
+  String? riskLevel;
 
   EmailvalidatorData({
-    this.creationDate,
-    this.domain,
     this.email,
+    this.domain,
     this.username,
-    this.canConnect,
-    this.hasTypo,
-    this.isValid,
-    this.isMxValid,
-    this.isSmtpValid,
     this.isRegexValid,
-    this.smtp,
-    this.isCompanyEmail,
+    this.hasTypo,
+    this.isMxValid,
+    this.isValid,
     this.isFreeEmail,
-    this.checksum,
+    this.isCompanyEmail,
+    this.isDisposable,
+    this.isRoleAccount,
+    this.mxRecord,
+    this.isNullMx,
+    this.canReceiveMail,
+    this.hasSpf,
+    this.hasDmarc,
+    this.isSubaddressed,
+    this.normalizedEmail,
+    this.suggestedCorrection,
+    this.mailProvider,
+    this.isSecurityGateway,
+    this.riskScore,
+    this.riskLevel,
   });
 
   factory EmailvalidatorData.fromJson(Map<String, dynamic> json) => EmailvalidatorData(
-      creationDate: json['creationDate'],
-      domain: json['domain'],
       email: json['email'],
+      domain: json['domain'],
       username: json['username'],
-      canConnect: json['canConnect'],
-      hasTypo: json['hasTypo'],
-      isValid: json['isValid'],
-      isMxValid: json['isMxValid'],
-      isSmtpValid: json['isSmtpValid'],
       isRegexValid: json['isRegexValid'],
-      smtp: json['smtp'] != null ? EmailvalidatorDataSmtp.fromJson(json['smtp']) : null,
-      isCompanyEmail: json['isCompanyEmail'],
+      hasTypo: json['hasTypo'],
+      isMxValid: json['isMxValid'],
+      isValid: json['isValid'],
       isFreeEmail: json['isFreeEmail'],
-      checksum: json['checksum'],
-    );
-}
-
-class EmailvalidatorDataSmtp {
-  bool? valid;
-  String? reason;
-
-  EmailvalidatorDataSmtp({
-    this.valid,
-    this.reason,
-  });
-
-  factory EmailvalidatorDataSmtp.fromJson(Map<String, dynamic> json) => EmailvalidatorDataSmtp(
-      valid: json['valid'],
-      reason: json['reason'],
+      isCompanyEmail: json['isCompanyEmail'],
+      isDisposable: json['isDisposable'],
+      isRoleAccount: json['isRoleAccount'],
+      mxRecord: json['mxRecord'],
+      isNullMx: json['isNullMx'],
+      canReceiveMail: json['canReceiveMail'],
+      hasSpf: json['hasSpf'],
+      hasDmarc: json['hasDmarc'],
+      isSubaddressed: json['isSubaddressed'],
+      normalizedEmail: json['normalizedEmail'],
+      suggestedCorrection: json['suggestedCorrection'],
+      mailProvider: json['mailProvider'],
+      isSecurityGateway: json['isSecurityGateway'],
+      riskScore: json['riskScore'],
+      riskLevel: json['riskLevel'],
     );
 }
 

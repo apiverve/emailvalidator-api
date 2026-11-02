@@ -1,7 +1,7 @@
 name: apiverve_emailvalidator
-description: Email Validator is a simple tool for validating if an email address is valid or not. It checks the email address format and the domain records to see if the email address is valid.
-version: 1.1.14
-homepage: https://emailvalidator.apiverve.com?utm_source=dart&utm_medium=homepage
+description: "Email Validator is an email validation API that checks whether an address is well-formed, whether its domain can receive mail, and whether it is safe to accept. It validates the format, resolves MX records (including null MX and the A-record fallback), checks for SPF and DMARC, flags disposable, role and free-provider addresses, and returns a normalized address for spotting duplicates. Paid plans add a risk score and typo correction."
+version: 1.2.4
+homepage: https://apiverve.com/marketplace/emailvalidator?utm_source=dart&utm_medium=referral&utm_content=homepage
 repository: https://github.com/apiverve/emailvalidator-api/tree/main/dart
 
 environment:

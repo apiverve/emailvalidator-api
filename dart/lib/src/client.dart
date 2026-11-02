@@ -46,7 +46,7 @@ final _formatPatterns = {
 
 /// Email Validator API client.
 ///
-/// For more information, visit: https://emailvalidator.apiverve.com?utm_source=dart&utm_medium=readme
+/// For more information, visit: https://apiverve.com/marketplace/emailvalidator?utm_source=dart&utm_medium=referral&utm_content=readme
 ///
 /// Parameters:
 /// * [email] (required) - The email address to validate (e.g., support@myspace.com) [format: email]
