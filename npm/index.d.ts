@@ -44,6 +44,8 @@ declare module '@apiverve/emailvalidator' {
       isSubaddressed:      boolean | null;
       normalizedEmail:     null | string;
       suggestedCorrection: null;
+      mailProvider:        null | string;
+      isSecurityGateway:   boolean | null;
       riskScore:           number | null;
       riskLevel:           null | string;
   }
