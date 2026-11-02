@@ -89,6 +89,12 @@ namespace APIVerve.API.EmailValidator
         [JsonProperty("suggestedCorrection")]
         public object SuggestedCorrection { get; set; }
 
+        [JsonProperty("mailProvider")]
+        public string MailProvider { get; set; }
+
+        [JsonProperty("isSecurityGateway")]
+        public bool? IsSecurityGateway { get; set; }
+
         [JsonProperty("riskScore")]
         public long? RiskScore { get; set; }
 
