@@ -120,6 +120,8 @@ print(result)
     "isSubaddressed": false,
     "normalizedEmail": "support@myspace.com",
     "suggestedCorrection": null,
+    "mailProvider": "Proofpoint",
+    "isSecurityGateway": true,
     "riskScore": 10,
     "riskLevel": "low"
   }
