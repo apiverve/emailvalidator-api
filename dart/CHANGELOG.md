@@ -1,4 +1,4 @@
-## 1.2.4
+## 1.2.5
 
 - Initial release
 - Full API support for Email Validator API
