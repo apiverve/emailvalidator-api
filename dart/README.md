@@ -1,6 +1,6 @@
 # Email Validator API - Dart/Flutter Client
 
-Email Validator is an email validation API that checks whether an address is well-formed, whether its domain can receive mail, and whether it is safe to accept. It validates the format, resolves MX records (including null MX and the A-record fallback), checks for SPF and DMARC, flags disposable, role and free-provider addresses, and returns a normalized address for spotting duplicates. Paid plans add a risk score and typo correction.
+Email Validator is an email validation API that checks whether an address is well-formed, whether its domain can receive mail, and whether it is safe to accept. It validates the format, resolves MX records (including null MX and the A-record fallback), checks for SPF and DMARC, flags disposable, role and free-provider addresses, and returns a normalized address for spotting duplicates. Paid plans add a risk score, typo correction, the mail provider and what a role mailbox is for (support, billing, noreply and so on).
 
 [![pub package](https://img.shields.io/pub/v/apiverve_emailvalidator.svg)](https://pub.dev/packages/apiverve_emailvalidator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -13,7 +13,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  apiverve_emailvalidator: ^1.2.5
+  apiverve_emailvalidator: ^1.2.6
 ```
 
 Then run:
@@ -73,6 +73,7 @@ void main() async {
     "suggestedCorrection": null,
     "mailProvider": "Proofpoint",
     "isSecurityGateway": true,
+    "roleCategory": "support",
     "riskScore": 10,
     "riskLevel": "low"
   }

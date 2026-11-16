@@ -77,6 +77,7 @@ class EmailvalidatorData {
   dynamic suggestedCorrection;
   String? mailProvider;
   bool? isSecurityGateway;
+  String? roleCategory;
   num? riskScore;
   String? riskLevel;
 
@@ -102,6 +103,7 @@ class EmailvalidatorData {
     this.suggestedCorrection,
     this.mailProvider,
     this.isSecurityGateway,
+    this.roleCategory,
     this.riskScore,
     this.riskLevel,
   });
@@ -128,6 +130,7 @@ class EmailvalidatorData {
       suggestedCorrection: json['suggestedCorrection'],
       mailProvider: json['mailProvider'],
       isSecurityGateway: json['isSecurityGateway'],
+      roleCategory: json['roleCategory'],
       riskScore: json['riskScore'],
       riskLevel: json['riskLevel'],
     );
