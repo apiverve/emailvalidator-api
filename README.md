@@ -1,6 +1,6 @@
 # [Email Validator API](https://apiverve.com/marketplace/emailvalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
-Email Validator is an email validation API that checks whether an address is well-formed, whether its domain can receive mail, and whether it is safe to accept. It validates the format, resolves MX records (including null MX and the A-record fallback), checks for SPF and DMARC, flags disposable, role and free-provider addresses, and returns a normalized address for spotting duplicates. Paid plans add a risk score and typo correction.
+Email Validator is an email validation API that checks whether an address is well-formed, whether its domain can receive mail, and whether it is safe to accept. It validates the format, resolves MX records (including null MX and the A-record fallback), checks for SPF and DMARC, flags disposable, role and free-provider addresses, and returns a normalized address for spotting duplicates. Paid plans add a risk score, typo correction, the mail provider and what a role mailbox is for (support, billing, noreply and so on).
 
 The Email Validator API provides a simple, reliable way to integrate email validator functionality into your applications. Built for developers who need production-ready email validator capabilities without the complexity of building from scratch.
 
@@ -232,6 +232,7 @@ A real response from the Email Validator API:
     "suggestedCorrection": null,
     "mailProvider": "Proofpoint",
     "isSecurityGateway": true,
+    "roleCategory": "support",
     "riskScore": 10,
     "riskLevel": "low"
   }
