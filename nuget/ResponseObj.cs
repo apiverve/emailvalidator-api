@@ -95,6 +95,9 @@ namespace APIVerve.API.EmailValidator
         [JsonProperty("isSecurityGateway")]
         public bool? IsSecurityGateway { get; set; }
 
+        [JsonProperty("roleCategory")]
+        public string RoleCategory { get; set; }
+
         [JsonProperty("riskScore")]
         public long? RiskScore { get; set; }
 
