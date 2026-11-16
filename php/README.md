@@ -1,6 +1,6 @@
 # Email Validator API - PHP Package
 
-Email Validator is an email validation API that checks whether an address is well-formed, whether its domain can receive mail, and whether it is safe to accept. It validates the format, resolves MX records (including null MX and the A-record fallback), checks for SPF and DMARC, flags disposable, role and free-provider addresses, and returns a normalized address for spotting duplicates. Paid plans add a risk score and typo correction.
+Email Validator is an email validation API that checks whether an address is well-formed, whether its domain can receive mail, and whether it is safe to accept. It validates the format, resolves MX records (including null MX and the A-record fallback), checks for SPF and DMARC, flags disposable, role and free-provider addresses, and returns a normalized address for spotting duplicates. Paid plans add a risk score, typo correction, the mail provider and what a role mailbox is for (support, billing, noreply and so on).
 
 ## Installation
 
@@ -90,6 +90,7 @@ $client = new Client(
     "suggestedCorrection": null,
     "mailProvider": "Proofpoint",
     "isSecurityGateway": true,
+    "roleCategory": "support",
     "riskScore": 10,
     "riskLevel": "low"
   }
