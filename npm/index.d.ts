@@ -46,6 +46,7 @@ declare module '@apiverve/emailvalidator' {
       suggestedCorrection: null;
       mailProvider:        null | string;
       isSecurityGateway:   boolean | null;
+      roleCategory:        null | string;
       riskScore:           number | null;
       riskLevel:           null | string;
   }
